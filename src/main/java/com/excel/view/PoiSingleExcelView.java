@@ -1,13 +1,13 @@
 /**
  * Copyright 2013-2015 JueYue (qrb.jueyue@gmail.com)
- *   
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
@@ -15,13 +15,12 @@
  */
 package com.excel.view;
 
+import com.excel.ExcelExportUtil;
+import com.excel.entity.ExportParams;
 import com.excel.entity.vo.ExcelConstants;
+import com.excel.export.base.ExcelExportServer;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Workbook;
-import org.jeecgframework.poi.excel.ExcelExportUtil;
-import org.jeecgframework.poi.excel.entity.ExportParams;
-import org.jeecgframework.poi.excel.entity.vo.NormalExcelConstants;
-import org.jeecgframework.poi.excel.export.ExcelExportServer;
 import org.springframework.stereotype.Controller;
 
 import javax.servlet.ServletOutputStream;
@@ -49,28 +48,28 @@ public class PoiSingleExcelView extends AbstractExcelView {
         Workbook workbook = null;
         if (model.containsKey(ExcelConstants.MAP_LIST)) {
             List<Map<String, Object>> list = (List<Map<String, Object>>) model
-                .get(NormalExcelConstants.MAP_LIST);
+                    .get(ExcelConstants.MAP_LIST);
             if (list.size() == 0) {
                 throw new RuntimeException("MAP_LIST IS NULL");
             }
             workbook = ExcelExportUtil.exportExcel(
-                (ExportParams) list.get(0).get(NormalExcelConstants.PARAMS), (Class<?>) list.get(0)
-                    .get(NormalExcelConstants.CLASS),
-                (Collection<?>) list.get(0).get(NormalExcelConstants.DATA_LIST));
+                    (ExportParams) list.get(0).get(ExcelConstants.PARAMS), (Class<?>) list.get(0)
+                            .get(ExcelConstants.CLASS),
+                    (Collection<?>) list.get(0).get(ExcelConstants.DATA_LIST));
             for (int i = 1; i < list.size(); i++) {
                 new ExcelExportServer().createSheet(workbook,
-                    (ExportParams) list.get(i).get(NormalExcelConstants.PARAMS), (Class<?>) list
-                        .get(i).get(NormalExcelConstants.CLASS),
-                    (Collection<?>) list.get(i).get(NormalExcelConstants.DATA_LIST));
+                        (ExportParams) list.get(i).get(ExcelConstants.PARAMS), (Class<?>) list
+                                .get(i).get(ExcelConstants.CLASS),
+                        (Collection<?>) list.get(i).get(ExcelConstants.DATA_LIST));
             }
         } else {
             workbook = ExcelExportUtil.exportExcel(
-                (ExportParams) model.get(NormalExcelConstants.PARAMS),
-                (Class<?>) model.get(NormalExcelConstants.CLASS),
-                (Collection<?>) model.get(NormalExcelConstants.DATA_LIST));
+                    (ExportParams) model.get(ExcelConstants.PARAMS),
+                    (Class<?>) model.get(ExcelConstants.CLASS),
+                    (Collection<?>) model.get(ExcelConstants.DATA_LIST));
         }
-        if (model.containsKey(NormalExcelConstants.FILE_NAME)) {
-            codedFileName = (String) model.get(NormalExcelConstants.FILE_NAME);
+        if (model.containsKey(ExcelConstants.FILE_NAME)) {
+            codedFileName = (String) model.get(ExcelConstants.FILE_NAME);
         }
         if (workbook instanceof HSSFWorkbook) {
             codedFileName += HSSF;

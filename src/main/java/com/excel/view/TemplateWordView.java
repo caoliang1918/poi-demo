@@ -15,6 +15,7 @@
  */
 package com.excel.view;
 
+import com.excel.entity.vo.WordConstants;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.jeecgframework.poi.excel.entity.vo.TemplateWordConstants;
 import org.jeecgframework.poi.word.WordExportUtil;
@@ -33,7 +34,6 @@ import java.util.Map;
  * @date 2014年6月30日 下午9:15:49
  */
 @SuppressWarnings("unchecked")
-@Controller(TemplateWordConstants.JEECG_TEMPLATE_WORD_VIEW)
 public class TemplateWordView extends AbstractView {
 
     private static final String CONTENT_TYPE = "application/msword";

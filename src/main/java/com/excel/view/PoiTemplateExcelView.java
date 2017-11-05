@@ -15,12 +15,11 @@
  */
 package com.excel.view;
 
+import com.excel.ExcelExportUtil;
+import com.excel.entity.TemplateExportParams;
 import com.excel.entity.vo.ExcelConstants;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Workbook;
-import org.jeecgframework.poi.excel.ExcelExportUtil;
-import org.jeecgframework.poi.excel.entity.TemplateExportParams;
-import org.jeecgframework.poi.excel.entity.vo.TemplateExcelConstants;
 import org.springframework.stereotype.Controller;
 
 import javax.servlet.ServletOutputStream;
@@ -48,10 +47,10 @@ public class PoiTemplateExcelView extends AbstractExcelView {
                                            HttpServletResponse response) throws Exception {
         String codedFileName = "临时文件";
         Workbook workbook = ExcelExportUtil.exportExcel(
-            (TemplateExportParams) model.get(TemplateExcelConstants.PARAMS),
-            (Class<?>) model.get(TemplateExcelConstants.CLASS),
-            (List<?>) model.get(TemplateExcelConstants.LIST_DATA),
-            (Map<String, Object>) model.get(TemplateExcelConstants.MAP_DATA));
+            (TemplateExportParams) model.get(ExcelConstants.PARAMS),
+            (Class<?>) model.get(ExcelConstants.CLASS),
+            (List<?>) model.get(ExcelConstants.LIST_DATA),
+            (Map<String, Object>) model.get(ExcelConstants.MAP_DATA));
         if (model.containsKey(ExcelConstants.FILE_NAME)) {
             codedFileName = (String) model.get(ExcelConstants.FILE_NAME);
         }
