@@ -32,14 +32,14 @@ public class TestController {
     public void downloadByPoiBaseView(ModelMap map, HttpServletRequest request,
                                       HttpServletResponse response) {
         ExportParams params = new ExportParams("测试sheetName", ExcelType.XSSF);
-        params.setFreezeCol(0); //冻结列
-        params.setFreezeRow(5); //冻结行
+        //params.setFreezeCol(0); //冻结列
+        params.setFreezeRow(1); //冻结行
         map.put(ExcelConstants.CLASS, ContactsEntity.class);
         map.put(ExcelConstants.PARAMS, params);
         //就是我们的查询参数,会带到接口中,供接口查询使用
         map.put(ExcelConstants.DATA_PARAMS, new HashMap<String, String>());
         map.put(ExcelConstants.DATA_INTER, excelExportServer);
-        PoiBaseView.render("测试下载", map, request, response, ExcelConstants.EASYPOI_BIG_EXCEL_VIEW);
+        PoiBaseView.render("测试下载", map, request, response, ExcelConstants.POI_BIG_EXCEL_VIEW);
 
     }
 }
