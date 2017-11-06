@@ -12,28 +12,30 @@ import java.util.Date;
  */
 public class ContactsEntity implements Serializable {
 
-    /** id */
+    /**
+     * id
+     */
     private java.lang.String id;
     // 电话号码(主键)
-    @Excel(name = "电话号码")
-    private String           clientPhone = null;
+    @Excel(name = "电话号码", width = 15)
+    private String clientPhone = null;
     // 客户姓名
     @Excel(name = "姓名")
-    private String           clientName  = null;
+    private String clientName = null;
     // 所属分组
     @ExcelEntity
-    private ContactsGroup   group       = null;
+    private ContactsGroup group = null;
     // 备注
     @Excel(name = "备注")
-    private String           remark      = null;
+    private String remark = null;
     // 生日
     @Excel(name = "出生日期", format = "yyyy-MM-dd", width = 20)
-    private Date birthday    = null;
+    private Date birthday = null;
 
-    @Excel(name = "创建时间",databaseFormat="yyyy-MM-dd HH:mm:ss")
+    @Excel(name = "创建时间", format = "yyyy-MM-dd HH:mm:ss", width = 25)
     private Date cts;
     // 创建人
-    private String           createBy    = null;
+    private String createBy = null;
 
     public String getId() {
         return id;

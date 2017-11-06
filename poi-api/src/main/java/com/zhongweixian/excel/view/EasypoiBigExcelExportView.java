@@ -21,14 +21,13 @@ import java.util.Map;
 public class EasypoiBigExcelExportView extends MiniAbstractExcelView {
 
     @Override
-    protected void renderMergedOutputModel(String fileName , Map<String, Object> model, HttpServletRequest request,
+    protected void renderMergedOutputModel(String fileName, Map<String, Object> model, HttpServletRequest request,
                                            HttpServletResponse response) throws Exception {
-        String codedFileName = "临时文件";
         Workbook workbook = ExcelExportUtil.exportBigExcel(
                 (ExportParams) model.get(ExcelConstants.PARAMS),
                 (Class<?>) model.get(ExcelConstants.CLASS), Collections.EMPTY_LIST);
         IExcelExportServer server = (IExcelExportServer) model.get(ExcelConstants.DATA_INTER);
-        int page = 1;
+        int page = 2;
         List<Object> list = server.selectListForExcelExport(model.get(ExcelConstants.DATA_PARAMS), page++);
         while (list != null && list.size() > 0) {
             workbook = ExcelExportUtil.exportBigExcel(
@@ -39,19 +38,19 @@ public class EasypoiBigExcelExportView extends MiniAbstractExcelView {
         }
         ExcelExportUtil.closeExportBigExcel();
         if (model.containsKey(ExcelConstants.FILE_NAME)) {
-            codedFileName = (String) model.get(ExcelConstants.FILE_NAME);
+            fileName = (String) model.get(ExcelConstants.FILE_NAME);
         }
         if (workbook instanceof HSSFWorkbook) {
-            codedFileName += HSSF;
+            fileName += HSSF;
         } else {
-            codedFileName += XSSF;
+            fileName += XSSF;
         }
         if (isIE(request)) {
-            codedFileName = java.net.URLEncoder.encode(codedFileName, "UTF8");
+            fileName = java.net.URLEncoder.encode(fileName, "UTF8");
         } else {
-            codedFileName = new String(codedFileName.getBytes("UTF-8"), "ISO-8859-1");
+            fileName = new String(fileName.getBytes("UTF-8"), "ISO-8859-1");
         }
-        response.setHeader("content-disposition", "attachment;filename=" + codedFileName);
+        response.setHeader("content-disposition", "attachment;filename=" + fileName);
         response.setContentType(CONTENT_TYPE);
         ServletOutputStream out = response.getOutputStream();
         workbook.write(out);

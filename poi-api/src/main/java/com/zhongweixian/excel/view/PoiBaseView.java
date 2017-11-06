@@ -43,6 +43,8 @@ public abstract class PoiBaseView {
             case ExcelConstants.MAP_GRAPH_EXCEL_VIEW:
                 view = new MapGraphExcelView();
                 break;
+            default :
+                break;
         }
 
         try {
