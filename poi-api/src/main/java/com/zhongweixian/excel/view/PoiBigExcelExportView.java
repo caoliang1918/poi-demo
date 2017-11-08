@@ -18,7 +18,7 @@ import java.util.Map;
  * @author : caoliang
  * @date : 2017/11/6:下午2:02
  */
-public class EasypoiBigExcelExportView extends MiniAbstractExcelView {
+public class PoiBigExcelExportView extends MiniAbstractExcelView {
 
     @Override
     protected void renderMergedOutputModel(String fileName, Map<String, Object> model, HttpServletRequest request,
