@@ -31,13 +31,13 @@ public abstract class PoiBaseView {
             case ExcelConstants.POI_BIG_EXCEL_VIEW:
                 view = new EasypoiBigExcelExportView();
                 break;
-            case ExcelConstants.EASYPOI_MAP_EXCEL_VIEW:
+            case ExcelConstants.POI_MAP_EXCEL_VIEW:
                 view = new EasypoiMapExcelView();
                 break;
-            case ExcelConstants.EASYPOI_EXCEL_VIEW:
+            case ExcelConstants.POI_EXCEL_VIEW:
                 view = new EasypoiSingleExcelView();
                 break;
-            case ExcelConstants.EASYPOI_TEMPLATE_EXCEL_VIEW:
+            case ExcelConstants.POI_TEMPLATE_EXCEL_VIEW:
                 view = new EasypoiTemplateExcelView();
                 break;
             case ExcelConstants.MAP_GRAPH_EXCEL_VIEW:
