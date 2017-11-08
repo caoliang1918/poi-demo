@@ -81,7 +81,6 @@ public class TestController {
         modelMap.put(ExcelConstants.MAP_LIST, list);
         modelMap.put(ExcelConstants.ENTITY_LIST, entity);
         modelMap.put(ExcelConstants.PARAMS, params);
-        modelMap.put(ExcelConstants.FILE_NAME, "EasypoiMapExcelViewTest");
         PoiBaseView.render("map导出",modelMap, request, response, ExcelConstants.EASYPOI_MAP_EXCEL_VIEW);
 
     }

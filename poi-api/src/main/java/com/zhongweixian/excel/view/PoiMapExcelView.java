@@ -26,9 +26,7 @@ public class PoiMapExcelView extends MiniAbstractExcelView {
                 (ExportParams) model.get(ExcelConstants.PARAMS),
                 (List<ExcelExportEntity>) model.get(ExcelConstants.ENTITY_LIST),
                 (Collection<? extends Map<?, ?>>) model.get(ExcelConstants.MAP_LIST));
-        if (model.containsKey(ExcelConstants.FILE_NAME)) {
-            fileName = (String) model.get(ExcelConstants.FILE_NAME);
-        }
+
         if (workbook instanceof HSSFWorkbook) {
             fileName += HSSF;
         } else {

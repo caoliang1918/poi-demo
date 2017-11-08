@@ -15,7 +15,6 @@ public class ExcelConstants {
     public final static String ENTITY_LIST = "EntityList";
     public final static String CLASS = "entity";
     public final static String PARAMS = "params";
-    public final static String FILE_NAME = "fileName";
 
     /**
      * 单Sheet导出

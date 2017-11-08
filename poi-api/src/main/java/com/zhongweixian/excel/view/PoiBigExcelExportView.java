@@ -37,9 +37,7 @@ public class PoiBigExcelExportView extends MiniAbstractExcelView {
                     page++);
         }
         ExcelExportUtil.closeExportBigExcel();
-        if (model.containsKey(ExcelConstants.FILE_NAME)) {
-            fileName = (String) model.get(ExcelConstants.FILE_NAME);
-        }
+
         if (workbook instanceof HSSFWorkbook) {
             fileName += HSSF;
         } else {
