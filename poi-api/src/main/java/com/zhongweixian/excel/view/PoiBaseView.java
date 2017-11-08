@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 /**
- * @author : caoliang
+ * @author : caoliang1918@aliyun.com
+ *
  * @date : 2017/11/6:下午2:00
  */
 public abstract class PoiBaseView {
@@ -29,16 +30,15 @@ public abstract class PoiBaseView {
 
         switch (viewName){
             case ExcelConstants.POI_BIG_EXCEL_VIEW:
-                view = new EasypoiBigExcelExportView();
-                break;
-            case ExcelConstants.POI_MAP_EXCEL_VIEW:
-                view = new EasypoiMapExcelView();
+                view = new PoiBigExcelExportView();
                 break;
             case ExcelConstants.POI_EXCEL_VIEW:
-                view = new EasypoiSingleExcelView();
+                view = new PoiSingleExcelView();
                 break;
             case ExcelConstants.POI_TEMPLATE_EXCEL_VIEW:
-                view = new EasypoiTemplateExcelView();
+                view = new PoiTemplateExcelView();
+            case ExcelConstants.POI_MAP_EXCEL_VIEW:
+                view = new PoiMapExcelView();
                 break;
             case ExcelConstants.MAP_GRAPH_EXCEL_VIEW:
                 view = new MapGraphExcelView();
@@ -46,7 +46,6 @@ public abstract class PoiBaseView {
             default :
                 break;
         }
-
         try {
             view.renderMergedOutputModel(fileName , model, request, response);
         } catch (Exception e) {

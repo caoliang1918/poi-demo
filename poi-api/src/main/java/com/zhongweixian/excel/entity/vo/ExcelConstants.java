@@ -2,6 +2,7 @@ package com.zhongweixian.excel.entity.vo;
 
 /**
  * @author caoliang1918@aliyun.com
+ *
  * @Date 2017/11/5:21:59
  */
 public class ExcelConstants {
@@ -14,7 +15,6 @@ public class ExcelConstants {
 
     public final static String CLASS = "entity";
     public final static String PARAMS = "params";
-    public final static String FILE_NAME = "fileName";
 
     /**
      * 单Sheet导出

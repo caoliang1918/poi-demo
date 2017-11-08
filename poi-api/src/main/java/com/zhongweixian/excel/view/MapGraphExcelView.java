@@ -5,7 +5,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 /**
- * @author : caoliang
+ * @author : caoliang1918@aliyun.com
+ *
  * @date : 2017/11/6:下午2:00
  */
 public class MapGraphExcelView extends MiniAbstractExcelView {
