@@ -32,14 +32,13 @@ public abstract class PoiBaseView {
             case ExcelConstants.POI_BIG_EXCEL_VIEW:
                 view = new PoiBigExcelExportView();
                 break;
-            case ExcelConstants.EASYPOI_MAP_EXCEL_VIEW:
-                view = new PoiMapExcelView();
-                break;
-            case ExcelConstants.EASYPOI_EXCEL_VIEW:
+            case ExcelConstants.POI_EXCEL_VIEW:
                 view = new PoiSingleExcelView();
                 break;
-            case ExcelConstants.EASYPOI_TEMPLATE_EXCEL_VIEW:
+            case ExcelConstants.POI_TEMPLATE_EXCEL_VIEW:
                 view = new PoiTemplateExcelView();
+            case ExcelConstants.POI_MAP_EXCEL_VIEW:
+                view = new PoiMapExcelView();
                 break;
             case ExcelConstants.MAP_GRAPH_EXCEL_VIEW:
                 view = new MapGraphExcelView();
@@ -47,7 +46,6 @@ public abstract class PoiBaseView {
             default :
                 break;
         }
-
         try {
             view.renderMergedOutputModel(fileName , model, request, response);
         } catch (Exception e) {

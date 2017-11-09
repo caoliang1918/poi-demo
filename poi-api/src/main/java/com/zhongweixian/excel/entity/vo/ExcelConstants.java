@@ -8,18 +8,20 @@ package com.zhongweixian.excel.entity.vo;
 public class ExcelConstants {
     public static final String EXCEL_VIEW = "";
     public static final String MAP_EXCEL_VIEW = "";
-    public static final String EASYPOI_TEMPLATE_EXCEL_VIEW = "";
+    public static final String POI_TEMPLATE_EXCEL_VIEW = "";
     public static final String TEMPLATE_EXCEL_VIEW = "";
 
     public final static String EASYPOI_MAP_EXCEL_VIEW = "easypoiMapExcelView";
     public final static String HEADER = "header";
+    public final static String POI_MAP_EXCEL_VIEW = "poiMapExcelView";
+
     public final static String CLASS = "entity";
     public final static String PARAMS = "params";
 
     /**
      * 单Sheet导出
      */
-    public final static String EASYPOI_EXCEL_VIEW = "easypoiExcelView";
+    public final static String POI_EXCEL_VIEW = "poiExcelView";
     /**
      * 数据列表
      */
@@ -30,6 +32,7 @@ public class ExcelConstants {
      * 多Sheet 对象
      */
     public final static String MAP_LIST = "mapList";
+    public final static String ENTITY_LIST = "EntityList";
 
     public final static String MAP_GRAPH_EXCEL_VIEW = "MapGraphExcelView";
     public final static String GRAPH_DEFINED = "graphDefined";
