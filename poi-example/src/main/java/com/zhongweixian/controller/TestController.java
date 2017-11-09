@@ -47,21 +47,21 @@ public class TestController {
     }
 
     @RequestMapping("mapData")
-    public void mapData(ModelMap modelMap, HttpServletRequest request,
-                                      HttpServletResponse response) {
-        List<ExcelExportEntity> entity = new ArrayList<ExcelExportEntity>();
-        ExcelExportEntity excelentity = new ExcelExportEntity("姓名", "name");
-        excelentity.setNeedMerge(true);
-        entity.add(excelentity);
-        entity.add(new ExcelExportEntity("性别", "sex"));
-        excelentity = new ExcelExportEntity(null, "students");
+    public void mapData(ModelMap modelMap, HttpServletRequest request , HttpServletResponse response) {
+        List<ExcelExportEntity> header = new ArrayList<ExcelExportEntity>();
+        ExcelExportEntity excelEntity = new ExcelExportEntity("姓名", "name");
+        excelEntity.setNeedMerge(true);
+        header.add(excelEntity);
+        header.add(new ExcelExportEntity("性别", "sex"));
+        excelEntity = new ExcelExportEntity("students", "students");
         List<ExcelExportEntity> temp = new ArrayList<ExcelExportEntity>();
         temp.add(new ExcelExportEntity("姓名", "name"));
         temp.add(new ExcelExportEntity("性别", "sex"));
-        excelentity.setList(temp);
-        entity.add(excelentity);
+        excelEntity.setList(temp);
+        header.add(excelEntity);
 
         List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+
         Map<String, Object> map;
         for (int i = 0; i < 10; i++) {
             map = new HashMap<String, Object>();
@@ -72,14 +72,13 @@ public class TestController {
             tempList.add(map);
             tempList.add(map);
             map.put("students", tempList);
-
             list.add(map);
         }
 
-        ExportParams params = new ExportParams("2412312", "测试", ExcelType.XSSF);
-        params.setFreezeCol(2);
+        ExportParams params = new ExportParams("测试map导出", ExcelType.XSSF);
+        params.setFreezeRow(1);
         modelMap.put(ExcelConstants.MAP_LIST, list);
-        modelMap.put(ExcelConstants.ENTITY_LIST, entity);
+        modelMap.put(ExcelConstants.HEADER, header);
         modelMap.put(ExcelConstants.PARAMS, params);
         PoiBaseView.render("map导出",modelMap, request, response, ExcelConstants.EASYPOI_MAP_EXCEL_VIEW);
 

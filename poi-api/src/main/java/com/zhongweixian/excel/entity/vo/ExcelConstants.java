@@ -12,7 +12,7 @@ public class ExcelConstants {
     public static final String TEMPLATE_EXCEL_VIEW = "";
 
     public final static String EASYPOI_MAP_EXCEL_VIEW = "easypoiMapExcelView";
-    public final static String ENTITY_LIST = "EntityList";
+    public final static String HEADER = "header";
     public final static String CLASS = "entity";
     public final static String PARAMS = "params";
 
