@@ -53,7 +53,7 @@ public class TestController {
         excelEntity.setNeedMerge(true);
         header.add(excelEntity);
         header.add(new ExcelExportEntity("性别", "sex"));
-        excelEntity = new ExcelExportEntity("students", "students");
+        excelEntity = new ExcelExportEntity("", "students");
         List<ExcelExportEntity> temp = new ArrayList<ExcelExportEntity>();
         temp.add(new ExcelExportEntity("姓名", "name"));
         temp.add(new ExcelExportEntity("性别", "sex"));
@@ -80,7 +80,7 @@ public class TestController {
         modelMap.put(ExcelConstants.MAP_LIST, list);
         modelMap.put(ExcelConstants.HEADER, header);
         modelMap.put(ExcelConstants.PARAMS, params);
-        PoiBaseView.render("map导出",modelMap, request, response, ExcelConstants.EASYPOI_MAP_EXCEL_VIEW);
+        PoiBaseView.render("map导出",modelMap, request, response, ExcelConstants.POI_MAP_EXCEL_VIEW);
 
     }
 }
