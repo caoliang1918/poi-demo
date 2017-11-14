@@ -9,7 +9,7 @@ import java.util.Map;
  *
  * @date : 2017/11/6:下午2:00
  */
-public class MapGraphExcelView extends MiniAbstractExcelView {
+public class MapGraphExcelView extends AbstractExcelView {
 
     @Override
     void renderMergedOutputModel(String fileName, Map<String, Object> model, HttpServletRequest request, HttpServletResponse response) throws Exception {

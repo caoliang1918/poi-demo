@@ -1,6 +1,7 @@
 package com.zhongweixian.excel.util;
 
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 
@@ -37,7 +38,7 @@ public class PoiSheetUtility {
 
                 Cell nextCell = row.getCell(x);
                 if (nextCell != null) {
-                    Cell newCell = row.createCell(x - 1, nextCell.getCellType());
+                    Cell newCell = row.createCell(x-1 , nextCell.getCellTypeEnum());
                     cloneCell(newCell, nextCell);
                 }
             }
@@ -57,24 +58,24 @@ public class PoiSheetUtility {
         cNew.setCellComment(cOld.getCellComment());
         cNew.setCellStyle(cOld.getCellStyle());
 
-        switch (cNew.getCellType()) {
-            case Cell.CELL_TYPE_BOOLEAN: {
+        switch (cNew.getCellTypeEnum()) {
+            case BOOLEAN: {
                 cNew.setCellValue(cOld.getBooleanCellValue());
                 break;
             }
-            case Cell.CELL_TYPE_NUMERIC: {
+            case NUMERIC: {
                 cNew.setCellValue(cOld.getNumericCellValue());
                 break;
             }
-            case Cell.CELL_TYPE_STRING: {
+            case STRING: {
                 cNew.setCellValue(cOld.getStringCellValue());
                 break;
             }
-            case Cell.CELL_TYPE_ERROR: {
+            case ERROR: {
                 cNew.setCellValue(cOld.getErrorCellValue());
                 break;
             }
-            case Cell.CELL_TYPE_FORMULA: {
+            case FORMULA: {
                 cNew.setCellFormula(cOld.getCellFormula());
                 break;
             }

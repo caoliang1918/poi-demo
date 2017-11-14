@@ -10,12 +10,11 @@ import java.util.Map;
 
 /**
  * @author : caoliang1918@aliyun.com
- *
  * @date : 2017/11/6:下午2:00
  */
-public abstract class PoiBaseView {
+public abstract class BaseView {
 
-    private static final Logger logger = LoggerFactory.getLogger(PoiBaseView.class);
+    private static final Logger logger = LoggerFactory.getLogger(BaseView.class);
 
     protected static boolean isIE(HttpServletRequest request) {
         return (request.getHeader("USER-AGENT").toLowerCase().indexOf("msie") > 0
@@ -24,11 +23,11 @@ public abstract class PoiBaseView {
                 : false;
     }
 
-    public static void render(String fileName , Map<String, Object> model, HttpServletRequest request,
-                       HttpServletResponse response, String viewName) {
-        PoiBaseView view = null;
+    public static void render(String fileName, Map<String, Object> model, HttpServletRequest request,
+                              HttpServletResponse response, String viewName) {
+        BaseView view = null;
 
-        switch (viewName){
+        switch (viewName) {
             case ExcelConstants.POI_BIG_EXCEL_VIEW:
                 view = new PoiBigExcelExportView();
                 break;
@@ -43,16 +42,16 @@ public abstract class PoiBaseView {
             case ExcelConstants.MAP_GRAPH_EXCEL_VIEW:
                 view = new MapGraphExcelView();
                 break;
-            default :
+            default:
                 break;
         }
         try {
-            view.renderMergedOutputModel(fileName , model, request, response);
+            view.renderMergedOutputModel(fileName, model, request, response);
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
         }
     }
 
-    abstract void renderMergedOutputModel(String fileName , Map<String, Object> model, HttpServletRequest request, HttpServletResponse response)throws Exception;
+    abstract void renderMergedOutputModel(String fileName, Map<String, Object> model, HttpServletRequest request, HttpServletResponse response) throws Exception;
 
 }

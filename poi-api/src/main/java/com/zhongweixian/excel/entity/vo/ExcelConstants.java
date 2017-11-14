@@ -11,7 +11,6 @@ public class ExcelConstants {
     public static final String POI_TEMPLATE_EXCEL_VIEW = "";
     public static final String TEMPLATE_EXCEL_VIEW = "";
 
-    public final static String HEADER = "header";
     public final static String POI_MAP_EXCEL_VIEW = "poiMapExcelView";
 
     public final static String CLASS = "entity";

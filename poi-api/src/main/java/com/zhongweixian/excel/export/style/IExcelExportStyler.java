@@ -1,7 +1,7 @@
 package com.zhongweixian.excel.export.style;
 
-import com.zhongweixian.excel.entity.params.ExcelExportEntity;
 import com.zhongweixian.excel.entity.params.ExcelForEachParams;
+import com.zhongweixian.excel.entity.params.ExcelExportEntity;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 
@@ -13,16 +13,26 @@ public interface IExcelExportStyler {
 
     /**
      * 列表头样式
+     *
+     * @param headerColor
+     * @return
      */
     CellStyle getHeaderStyle(short headerColor);
 
     /**
      * 标题样式
+     *
+     * @param color
+     * @return
      */
     CellStyle getTitleStyle(short color);
 
     /**
      * 获取样式方法
+     *
+     * @param parity
+     * @param entity
+     * @return
      */
     CellStyle getStyles(boolean parity, ExcelExportEntity entity);
 
@@ -37,6 +47,10 @@ public interface IExcelExportStyler {
 
     /**
      * 模板使用的样式设置
+     *
+     * @param isSingle
+     * @param excelForEachParams
+     * @return
      */
     CellStyle getTemplateStyles(boolean isSingle, ExcelForEachParams excelForEachParams);
 }

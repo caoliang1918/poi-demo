@@ -25,6 +25,7 @@ public final class POICacheManager {
 
     private static IFileLoader fileLoder;
 
+    @SuppressWarnings("AlibabaThreadLocalShouldRemove")
     private static ThreadLocal<IFileLoader> LOCAL_FILELOADER = new ThreadLocal<IFileLoader>();
 
     static {

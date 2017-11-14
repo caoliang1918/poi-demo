@@ -229,7 +229,7 @@ public class BaseExportServer extends ExportCommonServer {
         Cell cell = row.createCell(index);
         if (style != null && style.getDataFormat() > 0 && style.getDataFormat() < 12) {
             cell.setCellValue(Double.parseDouble(text));
-            cell.setCellType(Cell.CELL_TYPE_NUMERIC);
+            cell.setCellType(CellType.NUMERIC);
         } else {
             RichTextString rtext;
             if (type.equals(ExcelType.HSSF)) {
@@ -254,7 +254,7 @@ public class BaseExportServer extends ExportCommonServer {
         if (text != null && text.length() > 0) {
             cell.setCellValue(Double.parseDouble(text));
         }
-        cell.setCellType(Cell.CELL_TYPE_NUMERIC);
+        cell.setCellType(CellType.NUMERIC);
         if (style != null) {
             cell.setCellStyle(style);
         }

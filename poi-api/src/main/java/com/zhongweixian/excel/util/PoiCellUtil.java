@@ -1,6 +1,7 @@
 package com.zhongweixian.excel.util;
 
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.util.CellRangeAddress;
@@ -103,24 +104,24 @@ public class PoiCellUtil {
             return "";
         }
 
-        if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+        if (cell.getCellTypeEnum() == CellType.STRING) {
 
             return cell.getStringCellValue();
 
-        } else if (cell.getCellType() == Cell.CELL_TYPE_BOOLEAN) {
+        } else if (cell.getCellTypeEnum() == CellType.BOOLEAN) {
 
             return String.valueOf(cell.getBooleanCellValue());
 
-        } else if (cell.getCellType() == Cell.CELL_TYPE_FORMULA) {
+        } else if (cell.getCellTypeEnum() == CellType.FORMULA) {
 
             return cell.getCellFormula();
 
-        } else if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+        } else if (cell.getCellTypeEnum() == CellType.NUMERIC) {
 
             return String.valueOf(cell.getNumericCellValue());
 
         } else {
-            cell.setCellType(Cell.CELL_TYPE_STRING);
+            cell.setCellType(CellType.STRING);
             return cell.getStringCellValue();
         }
     }

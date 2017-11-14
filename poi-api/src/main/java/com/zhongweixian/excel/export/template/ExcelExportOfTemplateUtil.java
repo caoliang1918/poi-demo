@@ -267,9 +267,9 @@ public final class ExcelExportOfTemplateUtil extends BaseExportServer {
             }
             for (int i = row.getFirstCellNum(); i < row.getLastCellNum(); i++) {
                 cell = row.getCell(i);
-                if (row.getCell(i) != null && (cell.getCellType() == Cell.CELL_TYPE_STRING
-                        || cell.getCellType() == Cell.CELL_TYPE_NUMERIC)) {
-                    cell.setCellType(Cell.CELL_TYPE_STRING);
+                if (row.getCell(i) != null && (cell.getCellTypeEnum() == CellType.STRING
+                        || cell.getCellTypeEnum() == CellType.NUMERIC)) {
+                    cell.setCellType(CellType.STRING);
                     String text = cell.getStringCellValue();
                     if (text.contains(PoiElUtil.FOREACH_COL) || text.contains(PoiElUtil.FOREACH_COL_VALUE)) {
                         foreachCol(cell, map, text);
@@ -333,9 +333,8 @@ public final class ExcelExportOfTemplateUtil extends BaseExportServer {
             }
             for (int i = row.getFirstCellNum(); i < row.getLastCellNum(); i++) {
                 cell = row.getCell(i);
-                if (row.getCell(i) != null && (cell.getCellType() == Cell.CELL_TYPE_STRING
-                        || cell.getCellType() == Cell.CELL_TYPE_NUMERIC)) {
-                    cell.setCellType(Cell.CELL_TYPE_STRING);
+                if (row.getCell(i) != null && (cell.getCellTypeEnum() == CellType.STRING
+                        || cell.getCellTypeEnum() == CellType.NUMERIC)) {
                     String text = cell.getStringCellValue();
                     if (text.contains(PoiElUtil.IF_DELETE)) {
                         if (Boolean.valueOf(
@@ -357,12 +356,12 @@ public final class ExcelExportOfTemplateUtil extends BaseExportServer {
      * @param map
      */
     private void setValueForCellByMap(Cell cell, Map<String, Object> map) throws Exception {
-        int cellType = cell.getCellType();
-        if (cellType != Cell.CELL_TYPE_STRING && cellType != Cell.CELL_TYPE_NUMERIC) {
+        CellType cellType = cell.getCellTypeEnum();
+        if (cellType != CellType.STRING && cellType != CellType.NUMERIC) {
             return;
         }
         String oldString;
-        cell.setCellType(Cell.CELL_TYPE_STRING);
+        cell.setCellType(CellType.STRING);
         oldString = cell.getStringCellValue();
         if (oldString != null && oldString.indexOf(PoiElUtil.START_STR) != -1
                 && !oldString.contains(PoiElUtil.FOREACH)) {
@@ -381,7 +380,7 @@ public final class ExcelExportOfTemplateUtil extends BaseExportServer {
                 createImageCell(cell,img.getHeight(),img.getUrl(),img.getData());
             }else if (isNumber && StringUtils.isNotBlank(obj.toString())) {
                 cell.setCellValue(Double.parseDouble(obj.toString()));
-                cell.setCellType(Cell.CELL_TYPE_NUMERIC);
+                cell.setCellType(CellType.NUMERIC);
             } else {
                 cell.setCellValue(obj.toString());
             }
@@ -529,7 +528,7 @@ public final class ExcelExportOfTemplateUtil extends BaseExportServer {
                 }
                 if (isNumber && StringUtils.isNotEmpty(val)) {
                     row.getCell(ci).setCellValue(Double.parseDouble(val));
-                    row.getCell(ci).setCellType(Cell.CELL_TYPE_NUMERIC);
+                    row.getCell(ci).setCellType(CellType.NUMERIC);
                 } else {
                     try {
                         row.getCell(ci).setCellValue(val);

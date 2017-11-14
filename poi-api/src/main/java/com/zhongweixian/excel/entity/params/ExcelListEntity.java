@@ -1,7 +1,7 @@
 package com.zhongweixian.excel.entity.params;
 
-import com.zhongweixian.excel.entity.ExcelBaseParams;
 import com.zhongweixian.excel.handler.inter.IExcelDataHandler;
+import com.zhongweixian.excel.entity.ExcelBaseParams;
 
 import java.util.List;
 

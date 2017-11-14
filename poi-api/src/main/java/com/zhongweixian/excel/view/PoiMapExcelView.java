@@ -16,16 +16,15 @@ import java.util.Map;
 
 /**
  * @author : caoliang
- *
  * @date : 2017/11/6:下午2:02
  */
-public class PoiMapExcelView extends MiniAbstractExcelView {
+public class PoiMapExcelView extends AbstractExcelView {
 
     @Override
     protected void renderMergedOutputModel(String fileName, Map<String, Object> model, HttpServletRequest request, HttpServletResponse response) throws Exception {
         Workbook workbook = ExcelExportUtil.exportExcel(
                 (ExportParams) model.get(ExcelConstants.PARAMS),
-                (List<ExcelExportEntity>) model.get(ExcelConstants.HEADER),
+                (List<ExcelExportEntity>) model.get(ExcelConstants.ENTITY_LIST),
                 (Collection<? extends Map<?, ?>>) model.get(ExcelConstants.MAP_LIST));
 
         if (workbook instanceof HSSFWorkbook) {

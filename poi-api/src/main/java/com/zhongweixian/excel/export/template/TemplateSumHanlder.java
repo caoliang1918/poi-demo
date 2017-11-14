@@ -1,6 +1,7 @@
 package com.zhongweixian.excel.export.template;
 
 import com.zhongweixian.excel.util.PoiCellUtil;
+import com.zhongweixian.excel.util.PoiElUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -10,8 +11,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static com.zhongweixian.excel.util.PoiElUtil.SUM;
 
 /**
  * @author caoliang1918@aliyun.com
@@ -36,7 +35,7 @@ public class TemplateSumHanlder {
                 continue;
             }
             for (int i = row.getFirstCellNum(); i < row.getLastCellNum(); i++) {
-                if (row.getCell(i) != null && PoiCellUtil.getCellValue(row.getCell(i)).contains(SUM)) {
+                if (row.getCell(i) != null && PoiCellUtil.getCellValue(row.getCell(i)).contains(PoiElUtil.SUM)) {
                     addSumCellToList(row.getCell(i));
                 }
             }
@@ -46,7 +45,7 @@ public class TemplateSumHanlder {
     private void addSumCellToList(Cell cell) {
         String cellValue = cell.getStringCellValue();
         int index = 0;
-        while ((index = indexOfIgnoreCase(cellValue, SUM, index)) != -1) {
+        while ((index = indexOfIgnoreCase(cellValue, PoiElUtil.SUM, index)) != -1) {
             TemplateSumEntity entity = new TemplateSumEntity();
             entity.setCellValue(cellValue);
             entity.setSumKey(getSumKey(cellValue, index++));

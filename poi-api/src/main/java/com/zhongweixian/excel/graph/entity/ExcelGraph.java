@@ -7,9 +7,14 @@ import java.util.List;
  * @Date 2017/11/5:23:24
  */
 public interface ExcelGraph {
-     ExcelGraphElement getCategory();
-     List<ExcelGraphElement> getValueList();
-     Integer getGraphType();
-     List<ExcelTitleCell> getTitleCell();
-     List<String> getTitle();
+
+    ExcelGraphElement getCategory();
+
+    List<ExcelGraphElement> getValueList();
+
+    Integer getGraphType();
+
+    List<ExcelTitleCell> getTitleCell();
+
+    List<String> getTitle();
 }

@@ -13,7 +13,7 @@ public interface IExcelExportServer {
      * @param page   当前页数
      * @return
      */
-    public List<Object> selectListForExcelExport(Object obj, int page);
+    List<Object> selectListForExcelExport(Object obj, int page);
 
 }
 
