@@ -90,7 +90,6 @@
 			<version>1.7.25</version>
 			<scope>provided</scope>
 		</dependency>
-
 	</dependencies>
 
 
@@ -106,19 +105,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
-	<!-- 配置maven地址 -->
-	<distributionManagement>
-		<repository>
-			<id>releases</id>
-			<name>Nexus Release Repository</name>
-			<url>https://maven.uccc.cc/nexus/content/repositories/releases/</url>
-		</repository>
-		<snapshotRepository>
-			<id>snapshots</id>
-			<name>Nexus Snapshot Repository</name>
-			<url>https://maven.uccc.cc/nexus/content/repositories/snapshots/</url>
-		</snapshotRepository>
-	</distributionManagement>
-
 </project>

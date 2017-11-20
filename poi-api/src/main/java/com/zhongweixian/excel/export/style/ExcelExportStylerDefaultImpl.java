@@ -6,7 +6,7 @@ import org.apache.poi.ss.usermodel.*;
  * @author caoliang1918@aliyun.com
  * @Date 2017/11/5:22:24
  */
-public class ExcelExportStylerDefaultImpl extends AbstractExcelExportStyler implements IExcelExportStyler{
+public class ExcelExportStylerDefaultImpl extends AbstractExcelExportStyler implements IExcelExportStyler {
     public ExcelExportStylerDefaultImpl(Workbook workbook) {
         super.createStyles(workbook);
     }
@@ -14,6 +14,9 @@ public class ExcelExportStylerDefaultImpl extends AbstractExcelExportStyler impl
     @Override
     public CellStyle getTitleStyle(short color) {
         CellStyle titleStyle = workbook.createCellStyle();
+        Font font = workbook.createFont();
+        font.setFontName(fontName);
+        titleStyle.setFont(font);
         titleStyle.setAlignment(HorizontalAlignment.CENTER);
         titleStyle.setVerticalAlignment(VerticalAlignment.CENTER);
         titleStyle.setWrapText(true);
@@ -23,7 +26,10 @@ public class ExcelExportStylerDefaultImpl extends AbstractExcelExportStyler impl
     @Override
     public CellStyle stringSeptailStyle(Workbook workbook, boolean isWarp) {
         CellStyle style = workbook.createCellStyle();
-        style.setAlignment(HorizontalAlignment.CENTER);
+        Font font = workbook.createFont();
+        font.setFontName(fontName);
+        style.setFont(font);
+        style.setAlignment(HorizontalAlignment.LEFT);
         style.setVerticalAlignment(VerticalAlignment.CENTER);
         style.setDataFormat(STRING_FORMAT);
         if (isWarp) {
@@ -36,7 +42,7 @@ public class ExcelExportStylerDefaultImpl extends AbstractExcelExportStyler impl
     public CellStyle getHeaderStyle(short color) {
         CellStyle titleStyle = workbook.createCellStyle();
         Font font = workbook.createFont();
-        font.setFontHeightInPoints((short) 12);
+        font.setFontName(fontName);
         titleStyle.setFont(font);
         titleStyle.setAlignment(HorizontalAlignment.CENTER);
         titleStyle.setVerticalAlignment(VerticalAlignment.CENTER);
@@ -46,7 +52,10 @@ public class ExcelExportStylerDefaultImpl extends AbstractExcelExportStyler impl
     @Override
     public CellStyle stringNoneStyle(Workbook workbook, boolean isWarp) {
         CellStyle style = workbook.createCellStyle();
-        style.setAlignment(HorizontalAlignment.CENTER);
+        Font font = workbook.createFont();
+        font.setFontName(fontName);
+        style.setFont(font);
+        style.setAlignment(HorizontalAlignment.LEFT);
         style.setVerticalAlignment(VerticalAlignment.CENTER);
         style.setDataFormat(STRING_FORMAT);
         if (isWarp) {

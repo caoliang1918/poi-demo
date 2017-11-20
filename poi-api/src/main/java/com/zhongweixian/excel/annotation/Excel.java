@@ -7,7 +7,6 @@ import java.lang.annotation.Target;
 
 /**
  * @author caoliang1918@aliyun.com
- *
  * @Date 2017/11/4:22:32
  */
 @Retention(RetentionPolicy.RUNTIME)

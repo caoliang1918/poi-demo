@@ -16,7 +16,7 @@ public abstract class BaseView {
 
     private static final Logger logger = LoggerFactory.getLogger(BaseView.class);
 
-    protected static boolean isIE(HttpServletRequest request) {
+    public static boolean isIE(HttpServletRequest request) {
         return (request.getHeader("USER-AGENT").toLowerCase().indexOf("msie") > 0
                 || request.getHeader("USER-AGENT").toLowerCase().indexOf("rv:11.0") > 0
                 || request.getHeader("USER-AGENT").toLowerCase().indexOf("edge") > 0) ? true
@@ -36,6 +36,7 @@ public abstract class BaseView {
                 break;
             case ExcelConstants.POI_TEMPLATE_EXCEL_VIEW:
                 view = new PoiTemplateExcelView();
+                break;
             case ExcelConstants.POI_MAP_EXCEL_VIEW:
                 view = new PoiMapExcelView();
                 break;

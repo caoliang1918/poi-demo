@@ -1,6 +1,6 @@
-package com.zhongweixian.controller;
+package com.bckefu.controller;
 
-import com.zhongweixian.entity.ContactsEntity;
+import com.bckefu.entity.ContactsEntity;
 import com.zhongweixian.excel.ExcelImportUtil;
 import com.zhongweixian.excel.entity.ImportParams;
 import io.swagger.annotations.ApiOperation;
@@ -26,18 +26,17 @@ public class ImportController {
     Logger logger = LoggerFactory.getLogger(ImportController.class);
 
 
-    @ApiOperation(value = "导入测试" , tags = "1.0.0")
+    @ApiOperation(value = "导入测试", tags = "1.0.0")
     @PostMapping("")
     public ResponseEntity importExcel(@RequestParam("file") MultipartFile multipartFile) throws Exception {
-        if (multipartFile == null || multipartFile.isEmpty()){
-            return new ResponseEntity("FILE IS EMPTY" , HttpStatus.BAD_REQUEST);
+        if (multipartFile == null || multipartFile.isEmpty()) {
+            return new ResponseEntity("FILE ", HttpStatus.BAD_REQUEST);
         }
         ImportParams params = new ImportParams();
-        //params.setHeadRows(1);
         long start = System.currentTimeMillis();
         List<ContactsEntity> list = ExcelImportUtil.importExcel(multipartFile.getInputStream(), ContactsEntity.class, params);
-        logger.info("导入耗时 : {}  毫秒" , System.currentTimeMillis() - start);
-        logger.info("导入行数 : {}" , list.size());
-        return new ResponseEntity(list , HttpStatus.OK);
+        logger.info("导入耗时 : {}  毫秒", System.currentTimeMillis() - start);
+        logger.info("导入行数 : {}", list.size());
+        return new ResponseEntity(list, HttpStatus.OK);
     }
 }

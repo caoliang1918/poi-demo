@@ -11,6 +11,8 @@ import org.apache.poi.ss.usermodel.CellStyle;
  */
 public interface IExcelExportStyler {
 
+    String fontName = "微软雅黑";
+
     /**
      * 列表头样式
      *

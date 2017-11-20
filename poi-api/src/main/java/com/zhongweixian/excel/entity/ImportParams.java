@@ -23,7 +23,7 @@ public class ImportParams extends ExcelBaseParams {
     private int startRows = 0;
 
     /**
-     * 主键设置,如果这个cell没有值,就跳过 或者认为这个是list的下面的值
+     * 主键设置,如何这个cell没有值,就跳过 或者认为这个是list的下面的值
      * 大家不理解，去掉这个
      */
 

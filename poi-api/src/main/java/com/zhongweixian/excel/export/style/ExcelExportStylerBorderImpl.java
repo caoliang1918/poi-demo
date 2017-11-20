@@ -19,6 +19,7 @@ public class ExcelExportStylerBorderImpl extends AbstractExcelExportStyler
     public CellStyle getHeaderStyle(short color) {
         CellStyle titleStyle = workbook.createCellStyle();
         Font font = workbook.createFont();
+        font.setFontName(fontName);
         font.setFontHeightInPoints((short) 12);
         titleStyle.setFont(font);
         titleStyle.setBorderLeft(BorderStyle.valueOf("1")); // 左边框
@@ -33,6 +34,10 @@ public class ExcelExportStylerBorderImpl extends AbstractExcelExportStyler
     @Override
     public CellStyle stringNoneStyle(Workbook workbook, boolean isWarp) {
         CellStyle style = workbook.createCellStyle();
+        Font font = workbook.createFont();
+        font.setFontName(fontName);
+        font.setFontHeightInPoints((short) 12);
+        style.setFont(font);
         style.setBorderLeft(BorderStyle.valueOf("1")); // 左边框
         style.setBorderRight(BorderStyle.valueOf("1")); // 右边框
         style.setBorderBottom(BorderStyle.valueOf("1"));
