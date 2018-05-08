@@ -18,7 +18,6 @@ import java.util.Map;
 
 /**
  * @author caoliang1918@aliyun.com
- *
  * @Date 2017/11/5:22:14
  */
 public class ExcelExportUtil {
@@ -26,12 +25,9 @@ public class ExcelExportUtil {
     }
 
     /**
-     * @param entity
-     *            表格标题属性
-     * @param pojoClass
-     *            Excel对象Class
-     * @param dataSet
-     *            Excel对象数据List
+     * @param entity    表格标题属性
+     * @param pojoClass Excel对象Class
+     * @param dataSet   Excel对象数据List
      */
     public static Workbook exportBigExcel(ExportParams entity, Class<?> pojoClass,
                                           Collection<?> dataSet) {
@@ -47,16 +43,13 @@ public class ExcelExportUtil {
     }
 
     /**
-     * @param entity
-     *            表格标题属性
-     * @param pojoClass
-     *            Excel对象Class
-     * @param dataSet
-     *            Excel对象数据List
+     * @param entity    表格标题属性
+     * @param pojoClass Excel对象Class
+     * @param dataSet   Excel对象数据List
      */
     public static Workbook exportExcel(ExportParams entity, Class<?> pojoClass,
                                        Collection<?> dataSet) {
-        Workbook workbook = getWorkbook(entity.getType(),dataSet.size());
+        Workbook workbook = getWorkbook(entity.getType(), dataSet.size());
         new ExcelExportServer().createSheet(workbook, entity, pojoClass, dataSet);
         return workbook;
     }
@@ -73,16 +66,15 @@ public class ExcelExportUtil {
 
     /**
      * 根据Map创建对应的Excel
-     * @param entity
-     *            表格标题属性
-     * @param entityList
-     *            Map对象列表
-     * @param dataSet
-     *            Excel对象数据List
+     *
+     * @param entity     表格标题属性
+     * @param entityList Map对象列表
+     * @param dataSet    Excel对象数据List
      */
     public static Workbook exportExcel(ExportParams entity, List<ExcelExportEntity> entityList,
                                        Collection<? extends Map<?, ?>> dataSet) {
-        Workbook workbook = getWorkbook(entity.getType(),dataSet.size());;
+        Workbook workbook = getWorkbook(entity.getType(), dataSet.size());
+        ;
         new ExcelExportServer().createSheetForMap(workbook, entity, entityList, dataSet);
         return workbook;
     }
@@ -90,13 +82,12 @@ public class ExcelExportUtil {
     /**
      * 一个excel 创建多个sheet
      *
-     * @param list
-     *            多个Map key title 对应表格Title key entity 对应表格对应实体 key data
-     *            Collection 数据
+     * @param list 多个Map key title 对应表格Title key entity 对应表格对应实体 key data
+     *             Collection 数据
      * @return
      */
     public static Workbook exportExcel(List<Map<String, Object>> list, ExcelType type) {
-        Workbook workbook = getWorkbook(type,0);
+        Workbook workbook = getWorkbook(type, 0);
         for (Map<String, Object> map : list) {
             ExcelExportServer server = new ExcelExportServer();
             server.createSheet(workbook, (ExportParams) map.get("title"),
@@ -108,14 +99,10 @@ public class ExcelExportUtil {
     /**
      * 导出文件通过模板解析,不推荐这个了,推荐全部通过模板来执行处理
      *
-     * @param params
-     *            导出参数类
-     * @param pojoClass
-     *            对应实体
-     * @param dataSet
-     *            实体集合
-     * @param map
-     *            模板集合
+     * @param params    导出参数类
+     * @param pojoClass 对应实体
+     * @param dataSet   实体集合
+     * @param map       模板集合
      * @return
      */
     @Deprecated
@@ -128,10 +115,8 @@ public class ExcelExportUtil {
     /**
      * 导出文件通过模板解析只有模板,没有集合
      *
-     * @param params
-     *            导出参数类
-     * @param map
-     *            模板集合
+     * @param params 导出参数类
+     * @param map    模板集合
      * @return
      */
     public static Workbook exportExcel(TemplateExportParams params, Map<String, Object> map) {
@@ -141,10 +126,9 @@ public class ExcelExportUtil {
     /**
      * 导出文件通过模板解析只有模板,没有集合
      * 每个sheet对应一个map,导出到处,key是sheet的NUM
-     * @param params
-     *            导出参数类
-     * @param map
-     *            模板集合
+     *
+     * @param params 导出参数类
+     * @param map    模板集合
      * @return
      */
     public static Workbook exportExcel(Map<Integer, Map<String, Object>> map,
