@@ -1,4 +1,4 @@
-package com.bckefu.entity;
+package com.zhongweixian.entity;
 
 import com.zhongweixian.excel.annotation.Excel;
 import com.zhongweixian.excel.annotation.ExcelEntity;

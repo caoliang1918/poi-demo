@@ -1,6 +1,6 @@
-package com.bckefu.controller;
+package com.zhongweixian.controller;
 
-import com.bckefu.entity.ContactsEntity;
+import com.zhongweixian.entity.ContactsEntity;
 import com.zhongweixian.excel.ExcelImportUtil;
 import com.zhongweixian.excel.entity.ImportParams;
 import io.swagger.annotations.ApiOperation;

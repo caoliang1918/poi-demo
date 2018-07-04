@@ -1,4 +1,4 @@
-package com.bckefu;
+package com.zhongweixian;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

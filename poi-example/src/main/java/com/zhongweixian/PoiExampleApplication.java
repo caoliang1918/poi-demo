@@ -1,7 +1,7 @@
-package com.bckefu;
+package com.zhongweixian;
 
-import com.bckefu.entity.ContactsEntity;
-import com.bckefu.entity.ContactsGroup;
+import com.zhongweixian.entity.ContactsEntity;
+import com.zhongweixian.entity.ContactsGroup;
 import com.zhongweixian.excel.handler.inter.IExcelExportServer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
